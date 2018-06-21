@@ -1,0 +1,26 @@
+[Unit]
+Description=TAL's distributed currency daemon
+After=network.target
+
+[Service]
+User=tal
+Group=tal
+
+Type=forking
+PIDFile=/var/lib/tald/tald.pid
+
+ExecStart=/usr/bin/tald -daemon -pid=/var/lib/tald/tald.pid \
+          -conf=/etc/tal/tal.conf -datadir=/var/lib/tald
+
+ExecStop=-/usr/bin/tal-cli -conf=/etc/tal/tal.conf \
+         -datadir=/var/lib/tald stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

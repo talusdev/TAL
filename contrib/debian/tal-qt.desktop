@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=TAL
+Comment=TAL P2P Cryptocurrency
+Comment[fr]=TAL, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=TAL, eşten eşe kriptografik sanal para birimi
+Exec=tal-qt %u
+Terminal=false
+Type=Application
+Icon=tal128
+MimeType=x-scheme-handler/tal;
+Categories=Office;Finance;
